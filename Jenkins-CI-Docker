@@ -28,7 +28,7 @@ pipeline {
       steps{
         script {
          
-         dockerImage = docker.build latest
+         dockerImage = docker.build tancreat/img
         }
       }
     }
