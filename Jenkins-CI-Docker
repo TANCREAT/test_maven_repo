@@ -5,11 +5,11 @@ pipeline {
     registryCredential = 'my-docker-private-id'
     }
     tools {
-        maven 'maven3.8.6'
+        maven 'maven'
     }
     
 	agent {
-     label 'CI-Jenkins-Slave'
+     label 'agent1'
   }
   
   stages {
