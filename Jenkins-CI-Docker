@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    dockerimagename = "tancreat/tomee"
+    dockerimagename = "tancreat/repo"
     registry_url = "https://registry.hub.docker.com"
     registryCredential = 'dockerhub'
     }
