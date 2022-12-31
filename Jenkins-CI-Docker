@@ -1,8 +1,8 @@
 pipeline {
   environment {
-    dockerimagename = "vijaylokesh/my-tomcat"
+    dockerimagename = "tancreat/repo"
     registry_url = "https://registry.hub.docker.com"
-    registryCredential = 'my-docker-private-id'
+    registryCredential = 'dockerhub'
     }
     tools {
         maven 'maven'
@@ -27,14 +27,14 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-         dockerImage = docker.build tancreat/img
+         dockerImage = docker.build dockerimagename
         }
       }
     }
     stage('Pushing Image') {
       steps{
         script {
-          docker.withRegistry( https://registry.hub.docker.com, dockerhub ) {
+          docker.withRegistry( registry_url, registryCredential ) {
             dockerImage.push("${env.BUILD_NUMBER}")
 	    dockerImage.push("latest")
           }
